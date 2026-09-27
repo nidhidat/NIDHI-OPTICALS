@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ऑप्टिकल स्टोर - Modern Eyewear & Eye Testing</title>
+    <!-- Google Fonts for Typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* CSS Reset & Variables */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --primary-color: #0d6efd;
+            --secondary-color: #0b5ed7;
+            --accent-color: #ff6b6b;
+            --dark-color: #212529;
+            --light-color: #f8f9fa;
+            --gray-color: #6c757d;
+        }
+
+        body {
+            color: var(--dark-color);
+            background-color: #ffffff;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header & Navigation */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background-color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav a {
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        .btn-cta {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .btn-cta:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 4rem 5%;
+            background: linear-gradient(135deg, #eef5ff 0%, #ffffff 100%);
+            min-height: 80vh;
+        }
+
+        .hero-text {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .hero-text h1 {
+            font-size: 2.8rem;
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero-text h1 span {
+            color: var(--primary-color);
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            color: var(--gray-color);
+            margin-bottom: 2rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn-secondary {
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .hero-image {
+            flex: 1;
+            text-align: right;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 4rem 5%;
+            text-align: center;
+            background-color: var(--light-color);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-card i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Collections Section */
+        .collections {
+            padding: 4rem 5%;
+            text-align: center;
+        }
+
+        .collections-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .collection-card {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .collection-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .collection-overlay {
+            position: absolute;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            width: 100%;
+            padding: 1rem;
+        }
+
+        /* Banner / Special Offer */
+        .offer-banner {
+            background: linear-gradient(135deg, #0d6efd, #00d2ff);
+            color: white;
+            padding: 3rem 5%;
+            text-align: center;
+            border-radius: 15px;
+            margin: 2rem 5%;
+        }
+
+        .offer-banner h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .offer-banner .btn-cta {
+            background-color: white;
+            color: var(--primary-color);
+            display: inline-block;
+            margin-top: 1rem;
+        }
+
+        /* Contact & Location */
+        .contact {
+            padding: 4rem 5%;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: space-between;
+            background-color: var(--light-color);
+        }
+
+        .contact-info, .contact-map {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .contact-info h2 {
+            margin-bottom: 1rem;
+        }
+
+        .contact-details p {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .whatsapp-btn {
+            background-color: #25D366;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: bold;
+            margin-top: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-image {
+                margin-top: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <header>
+        <div class="logo">
+            <i class="fa-solid fa-glasses"></i> Nidhi Opticals
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">होम</a></li>
+                <li><a href="#features">खासियतें</a></li>
+                <li><a href="#collections">कलेक्शन</a></li>
+                <li><a href="#contact">संपर्क</a></li>
+            </ul>
+        </nav>
+        <a href="#contact" class="btn-cta">फ्री आई टेस्ट बुक करें</a>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-text">
+            <h1>आपके चेहरे और आंखों के लिए <span>सही चश्मा</span></h1>
+            <p>पाएं लेटेस्ट ट्रेंडी फ्रेम्स, प्रेसिजन आई-टेस्टिंग और एक्सपर्ट सलाह—सब एक ही छत के नीचे।</p>
+            <div class="hero-buttons">
+                <a href="#collections" class="btn-cta">कलेक्शन देखें</a>
+                <a href="#contact" class="btn-secondary">स्टोर पर आएं</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1574258495973-f010dfbb5371?auto=format&fit=crop&w=600&q=80" alt="Eyewear Shop">
+        </div>
+    </section>
+
+    <!-- Key Features Section -->
+    <section class="features" id="features">
+        <h2 class="section-title">हमारा स्टोर क्यों चुनें?</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <i class="fa-solid fa-eye"></i>
+                <h3>कंप्यूटर आई टेस्टिंग</h3>
+                <p>योग्य ऑप्टोमेट्रिस्ट द्वारा आधुनिक कंप्यूटर से आंखों की जांच।</p>
+            </div>
+            <div class="feature-card">
+                <i class="fa-solid fa-face-smile"></i>
+                <h3>Face Shape Matching</h3>
+                <p>आपके चेहरे के आकार के हिसाब से सबसे बेस्ट फ्रेम का सुझाव।</p>
+            </div>
+            <div class="feature-card">
+                <i class="fa-solid fa-shield-halved"></i>
+                <h3>Anti-Glare & Blue Cut</h3>
+                <p>स्क्रीन यूज करने वालों के लिए आंखों को सुरक्षित रखने वाले लेंस।</p>
+            </div>
+            <div class="feature-card">
+                <i class="fa-solid fa-tags"></i>
+                <h3>बेस्ट प्राइस गारंटी</h3>
+                <p>किफायती कीमतों में ब्रांडेड और स्टाइलिश फ्रेम्स की विशाल रेंज।</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Collections Showcase -->
+    <section class="collections" id="collections">
+        <h2 class="section-title">हमारे कलेक्शंस</h2>
+        <div class="collections-grid">
+            <div class="collection-card">
+                <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=400&q=80" alt="Men Eyewear">
+                <div class="collection-overlay"><h3>पुरुषों के लिए (Men)</h3></div>
+            </div>
+            <div class="collection-card">
+                <img src="https://images.unsplash.com/photo-1508296695146-257a814070b4?auto=format&fit=crop&w=400&q=80" alt="Women Eyewear">
+                <div class="collection-overlay"><h3>महिलाओं के लिए (Women)</h3></div>
+            </div>
+            <div class="collection-card">
+                <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=400&q=80" alt="Sunglasses">
+                <div class="collection-overlay"><h3>सनग्लासेस (Sunglasses)</h3></div>
+            </div>
+            <div class="collection-card">
+                <img src="https://images.unsplash.com/photo-1591076482161-42ce6da69f67?auto=format&fit=crop&w=400&q=80" alt="Kids Glasses">
+                <div class="collection-overlay"><h3>बच्चों के लिए (Kids)</h3></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Offer Banner -->
+    <section class="offer-banner">
+        <h2>विशेष ऑफर! 👓</h2>
+        <p>अपनी डॉक्टर कंसल्टेशन पर्ची लाएं और फ्रेम पर पाएं विशेष छूट!</p>
+        <a href="#contact" class="btn-cta">अभी बुक करें</a>
+    </section>
+
+    <!-- Contact & Store Location -->
+    <section class="contact" id="contact">
+        <div class="contact-info">
+            <h2>हमारे स्टोर पर आएं</h2>
+            <div class="contact-details">
+                <p><i class="fa-solid fa-location-dot"></i> SHOP NO 7, SECTOR 10 MARKET ,RAJNAGAR GHAZIABAD</p>
+                <p><i class="fa-solid fa-phone"></i> +91 9990884297</p>
+                <p><i class="fa-solid fa-clock"></i> सुबह 11:00 AM से रात 9:00 PM (सोमवार - रविवार)</p>
+            </div>
+            <a href="https://wa.me/919990884297" class="whatsapp-btn" target="_blank">
+                <i class="fa-brands fa-whatsapp"></i> व्हाट्सएप पर बात करें
+            </a>
+        </div>
+        <div class="contact-map">
+            <!-- Google Maps Embed Placeholder -->
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.983944747413!2d77.3712!3d28.6304!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjhCsDM3JzedNC40Ik4gNzfCsDIyJzE2LjMiRQ!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin" 
+                    width="100%" height="250" style="border:0; border-radius: 10px;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 आपकी ऑप्टिकल शॉप | सर्वाधिकार सुरक्षित।</p>
+    </footer>
+
+</body>
+</html>
